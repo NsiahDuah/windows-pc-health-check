@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Windows PC Health Check</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0 auto;
+        padding: 32px 20px;
+        max-width: 1100px;
+        background: #f3f6fa;
+        color: #172b4d;
+        line-height: 1.5;
+    }
+    h1 { margin-bottom: 6px; }
+    h2 { margin-top: 0; font-size: 21px; }
+    section {
+        background: white;
+        padding: 22px;
+        margin-top: 20px;
+        border: 1px solid #dce3ec;
+        border-radius: 10px;
+        overflow-x: auto;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 12px 0;
+    }
+    th, td {
+        text-align: left;
+        padding: 10px;
+        border: 1px solid #dce3ec;
+        vertical-align: top;
+        overflow-wrap: anywhere;
+    }
+    th { background: #eaf0f8; }
+    .note { color: #526174; }
+    .ok { color: #166534; background: #dcfce7; font-weight: bold; }
+    .warning { color: #854d0e; background: #fef9c3; font-weight: bold; }
+    .error { color: #991b1b; background: #fee2e2; font-weight: bold; }
+    .skipped { color: #475569; background: #e2e8f0; font-weight: bold; }
+</style>
+</head><body>
+<h1>Windows PC Health Check</h1><p class="note">Sample from a Windows 11 lab run. Computer name replaced with LAB-WIN11; findings retained.</p>
+<p class="note">A snapshot of selected system checks at the time of execution.</p>
+
+<section>
+<h2>System summary</h2>
+<table>
+<tr><td>ComputerName:</td><td>LAB-WIN11</td></tr>
+<tr><td>WindowsEdition:</td><td>Microsoft Windows 11 Enterprise Evaluation</td></tr>
+<tr><td>LastBootTime:</td><td>24/10/2026 19:02:28</td></tr>
+<tr><td>Uptime:</td><td>0 days, 0 hours, 18 minutes</td></tr>
+<tr><td>CheckedAt:</td><td>24/10/2026 19:20:28</td></tr>
+</table>
+
+</section>
+
+<section>
+<h2>Disk space</h2>
+<p class="note">Warning when free space is below 20%.</p>
+<table>
+<colgroup><col/><col/><col/><col/><col/></colgroup>
+<tr><th>Drive</th><th>SizeGiB</th><th>FreeGiB</th><th>FreePercent</th><th>Status</th></tr>
+<tr><td>C:</td><td>78.89</td><td>51.11</td><td>64.8</td><td class="ok">OK</td></tr>
+</table>
+
+</section>
+
+<section>
+<h2>Windows services</h2>
+<table>
+<colgroup><col/><col/><col/><col/><col/></colgroup>
+<tr><th>ServiceName</th><th>DisplayName</th><th>State</th><th>Status</th><th>Details</th></tr>
+<tr><td>Dnscache</td><td>DNS Client</td><td>Running</td><td class="ok">OK</td><td>Expected state: Running</td></tr>
+<tr><td>EventLog</td><td>Windows Event Log</td><td>Running</td><td class="ok">OK</td><td>Expected state: Running</td></tr>
+</table>
+
+</section>
+
+<section>
+<h2>Network checks</h2>
+<p class="note">TCP connectivity tests port reachability, not website content or certificates.</p>
+<table>
+<colgroup><col/><col/><col/><col/></colgroup>
+<tr><th>Check</th><th>Target</th><th>Status</th><th>Details</th></tr>
+<tr><td>DNS resolution</td><td>example.com</td><td class="ok">OK</td><td>104.20.23.154, 172.66.147.243</td></tr>
+<tr><td>TCP connectivity</td><td>example.com:443</td><td class="ok">OK</td><td>TCP connection established.</td></tr>
+</table>
+
+</section>
+
+<section>
+<h2>System event log</h2>
+<p class="note">Historical events require review; they do not automatically indicate a current fault.</p>
+<table>
+<tr><td>LogName:</td><td>System</td></tr>
+<tr><td>Since:</td><td>23/10/2026 19:20:29</td></tr>
+<tr><td>Status:</td><td class="warning">Warning</td></tr>
+<tr><td>Details:</td><td>Retrieved 9 event(s) for review; limited to the latest 10.</td></tr>
+</table>
+
+<h3>Retrieved event details</h3>
+<table>
+<tr><td>TimeCreated:</td><td>24/10/2026 19:02:50</td></tr>
+<tr><td>Id:</td><td>1040</td></tr>
+<tr><td>ProviderName:</td><td>Microsoft-Windows-TPM-WMI</td></tr>
+<tr><td>LevelDisplayName:</td><td class="error">Error</td></tr>
+<tr><td>Message:</td><td>Pre-attestation health checks confirm a critical component has failed, and the device is not expected to pass attestation.
+ Please see C:\WINDOWS\Logs\MeasuredBoot\0000000016-0000000000.json for detailed information on what checks were made.</td></tr>
+<tr><td><hr></td></tr>
+<tr><td>TimeCreated:</td><td>24/10/2026 18:02:30</td></tr>
+<tr><td>Id:</td><td>41</td></tr>
+<tr><td>ProviderName:</td><td>Microsoft-Windows-Kernel-Power</td></tr>
+<tr><td>LevelDisplayName:</td><td>Critical</td></tr>
+<tr><td>Message:</td><td>The system has rebooted without cleanly shutting down first. This error could be caused if the system stopped responding, crashed, or lost power unexpectedly.</td></tr>
+<tr><td><hr></td></tr>
+<tr><td>TimeCreated:</td><td>24/10/2026 18:02:27</td></tr>
+<tr><td>Id:</td><td>24641</td></tr>
+<tr><td>ProviderName:</td><td>Microsoft-Windows-BitLocker-Driver</td></tr>
+<tr><td>LevelDisplayName:</td><td class="error">Error</td></tr>
+<tr><td>Message:</td><td>An unexpected error was encountered attempting to retrieve the BitLocker volume master key during restart.</td></tr>
+<tr><td><hr></td></tr>
+<tr><td>TimeCreated:</td><td>24/10/2026 18:02:27</td></tr>
+<tr><td>Id:</td><td>24641</td></tr>
+<tr><td>ProviderName:</td><td>Microsoft-Windows-BitLocker-Driver</td></tr>
+<tr><td>LevelDisplayName:</td><td class="error">Error</td></tr>
+<tr><td>Message:</td><td>An unexpected error was encountered attempting to retrieve the BitLocker volume master key during restart.</td></tr>
+<tr><td><hr></td></tr>
+<tr><td>TimeCreated:</td><td>24/10/2026 19:02:42</td></tr>
+<tr><td>Id:</td><td>6008</td></tr>
+<tr><td>ProviderName:</td><td>EventLog</td></tr>
+<tr><td>LevelDisplayName:</td><td class="error">Error</td></tr>
+<tr><td>Message:</td><td>The previous system shutdown at 6:50:56 PM on ‎10/‎24/‎2026 was unexpected.</td></tr>
+<tr><td><hr></td></tr>
+<tr><td>TimeCreated:</td><td>24/10/2026 18:51:05</td></tr>
+<tr><td>Id:</td><td>1040</td></tr>
+<tr><td>ProviderName:</td><td>Microsoft-Windows-TPM-WMI</td></tr>
+<tr><td>LevelDisplayName:</td><td class="error">Error</td></tr>
+<tr><td>Message:</td><td>Pre-attestation health checks confirm a critical component has failed, and the device is not expected to pass attestation.
+ Please see C:\WINDOWS\Logs\MeasuredBoot\0000000015-0000000000.json for detailed information on what checks were made.</td></tr>
+<tr><td><hr></td></tr>
+<tr><td>TimeCreated:</td><td>24/10/2026 17:50:42</td></tr>
+<tr><td>Id:</td><td>24641</td></tr>
+<tr><td>ProviderName:</td><td>Microsoft-Windows-BitLocker-Driver</td></tr>
+<tr><td>LevelDisplayName:</td><td class="error">Error</td></tr>
+<tr><td>Message:</td><td>An unexpected error was encountered attempting to retrieve the BitLocker volume master key during restart.</td></tr>
+<tr><td><hr></td></tr>
+<tr><td>TimeCreated:</td><td>24/10/2026 17:50:42</td></tr>
+<tr><td>Id:</td><td>24641</td></tr>
+<tr><td>ProviderName:</td><td>Microsoft-Windows-BitLocker-Driver</td></tr>
+<tr><td>LevelDisplayName:</td><td class="error">Error</td></tr>
+<tr><td>Message:</td><td>An unexpected error was encountered attempting to retrieve the BitLocker volume master key during restart.</td></tr>
+<tr><td><hr></td></tr>
+<tr><td>TimeCreated:</td><td>23/10/2026 20:18:50</td></tr>
+<tr><td>Id:</td><td>20</td></tr>
+<tr><td>ProviderName:</td><td>Microsoft-Windows-WindowsUpdateClient</td></tr>
+<tr><td>LevelDisplayName:</td><td class="error">Error</td></tr>
+<tr><td>Message:</td><td>Installation Failure: Windows failed to install the following update with error 0x80073D02: 9MSMLRH6LZF3-Microsoft.WindowsNotepad.</td></tr>
+</table>
+
+</section>
+<table>
+</table>
+</body></html>

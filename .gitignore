@@ -1,0 +1,7 @@
+# Generated reports
+reports/
+
+# Temporary editor files
+*.tmp
+*.bak
+*~
